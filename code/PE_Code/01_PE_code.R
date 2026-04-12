@@ -1,4 +1,8 @@
-# library("readxl", "ggplot2", "rstatix", "dplyr", "broom")
+library(readxl)
+library(ggplot2)
+library(rstatix)
+library(dplyr)
+library(broom)
 
 here::i_am(
   "code/PE_code/01_PE_code.R"
@@ -6,8 +10,10 @@ here::i_am(
 
 data <- read_excel(here::here("data/nba_data.xlsx"))
 
+#Frequency counts for personal use
 table(data$Team, useNA = "ifany")
 
+#ANOVA test
 PFbT_anova <- oneway.test(PF ~ Team, 
                           data = data, 
                           var.equal = FALSE)
@@ -25,6 +31,8 @@ saveRDS(PFbT_anova_tbl,
         here::here("output/PE_output/PFbT_anova_tbl.rds"))
 
 
+#Summary table - unsure if necessary
+
 PFbT_table <- data %>%
   group_by(Team) %>%
   summarise(
@@ -36,6 +44,7 @@ PFbT_table <- data %>%
 saveRDS(PFbT_table,
         here::here("output/PE_output/PFbT_sum_tbl.rds"))
 
+#Boxplot
 PFbT_boxplot <- ggplot(data, 
                aes(x = Team, 
                    y = PF)) +
@@ -46,6 +55,7 @@ PFbT_boxplot <- ggplot(data,
 saveRDS(PFbT_boxplot,
         here::here("output/PE_output/PFbT_boxplot.rds"))
 
+#Bar Graph
 PFbT_bar <- ggplot(PFbT_table, 
                    aes(x = reorder(Team, mean_PF),
                        y = mean_PF)) +
