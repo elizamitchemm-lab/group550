@@ -50,3 +50,22 @@ clean:
 #.PHONY: install
 #install:
 #	Rscript -e "renv::restore(prompt = FALSE)"
+
+
+
+#em Outputs
+.PHONY: all_em clean_em
+
+all_em: output/em_output/table1_summary.csv \
+        output/em_output/chi_square_results.csv \
+        output/em_output/chi_square_table.csv \
+        output/em_output/Position_AS_barchart.png
+
+output/em_output/table1_summary.csv \
+output/em_output/chi_square_results.csv \
+output/em_output/chi_square_table.csv \
+output/em_output/Position_AS_barchart.png: code/em_code/em_code_01.R
+	Rscript code/em_code/em_code_01.R
+
+clean_em:
+	rm -rf output/em_output
