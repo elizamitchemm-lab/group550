@@ -6,16 +6,18 @@ This group project is an analysis of NBA player statistics.
 
 1. Change your working directory to match the current repository ("group550")
 
-2. Ensure that your organizational structure matches the below. Run "make clean"
+2. Run "make install" in the terminal to ensure all required packages are installed. 
+
+3. Ensure that your organizational structure matches the below. Run "make clean"
 in the terminal to ensure everything is set up correctly. 
 
-3. Decide which category you would like to view in the report. Open report.RMD
+4. Decide which category you would like to view in the report. Open report.RMD
 change the section:"" in the report to the category you would like. Save the report. 
 
-4. Now that your structure is correct and clean, run "make" in the terminal to
+5. Now that your structure is correct and clean, run "make" in the terminal to
 run all our code and produce the report.html file showing your category of interest!
 
-5. Open the report.html file and enjoy your report!
+6. Open the report.html file and enjoy your report!
 
 ## Structure of Repository
 
